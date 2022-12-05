@@ -36,8 +36,8 @@ class Game:
         self.clock.tick(FPS)
         self.screen.fill((255, 255, 255))
         self.draw_background()
-        pygame.display.update()
-        pygame.display.flip()
+        pygame.display.update() #actualiza la pantalla
+        pygame.display.flip() #Muestra la pantalla actualizada
 
     def draw_background(self):
         image_width = BG.get_width()
@@ -45,5 +45,5 @@ class Game:
         self.screen.blit(BG, (image_width + self.x_pos_bg, self.y_pos_bg))
         if self.x_pos_bg <= -image_width:
             self.screen.blit(BG, (image_width + self.x_pos_bg, self.y_pos_bg))
-            self.x_pos_bg = 0
+            self.x_pos_bg = 0  #el blit registra cambios o nuevas imagenes en la pantalla en distintas posiciones
         self.x_pos_bg -= self.game_speed
